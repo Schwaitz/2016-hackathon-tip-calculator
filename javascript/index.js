@@ -5,12 +5,19 @@ $(function() {
     var peopleBody = $("#people");
 
     $("#addButton").click(function() {
-        bill.addItem();
+        //TODO: Text fields
+        var name = prompt("Name");
+        var price = prompt("Price");
+        var person  = prompt("Person #");
+
+
+        bill.addItem(name, price, person);
     });
     $("#addPerson").click(function() {
+        //TODO: Text field
         var name = prompt("Name");
 
-        //TODO: Text field
-        bill.addPerson(prompt("Name"));
+
+        bill.addPerson(name);
     })
 });

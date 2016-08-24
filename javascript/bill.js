@@ -5,18 +5,20 @@ function Bill() {
     //Unique id counter
     this.nextPerson = 1;
 
+    //Testing
     this.addPerson("Test Guy 1");
     this.addPerson("Test Guy 2");
     this.addPerson("Test Guy 3");
+    this.addItem()
 }
 
-Bill.prototype.addItem = function() {
+Bill.prototype.addItem = function(name, price, personNumber) {
     var item = new Bill.Item(this);
 
     //TODO: Make text fields for this
-    item.name = prompt("Name");
-    item.price = prompt("Price");
-    item.person = this.people[prompt("Person #")];
+    item.name = name;
+    item.price = price;
+    item.person = this.people[personNumber];
 
     $("#bill").append(item.getJQ());
 };
