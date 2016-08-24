@@ -86,7 +86,9 @@ Bill.prototype.calculateResults = function() {
     gratuity = 1 + (gratuity / 100);
 
     var resultsBody = $("#results");
+    var personResultsBody = $("#personResults");
     resultsBody.empty();
+    personResultsBody.empty();
 
     //Reset how much everyone owes so we start calculating from zero
     Object.keys(this.people).forEach(function (id) {
@@ -110,7 +112,7 @@ Bill.prototype.calculateResults = function() {
     //Add their totals to the list of totals
     Object.keys(this.people).forEach(function (id) {
         var person = this.people[id];
-        resultsBody.append(
+        personResultsBody.append(
             $("<div></div>")
                 .addClass("result")
                 .append(

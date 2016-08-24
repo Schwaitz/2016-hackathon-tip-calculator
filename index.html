@@ -32,7 +32,7 @@
 
         <div class="row">
             <div class="col col-md-3">
-                <div id="people">
+                <div class="box">
                     <div id="peopleItems">
 
                     </div>
@@ -48,7 +48,7 @@
             </div>
 
             <div class="col col-md-9">
-                <div id="bill">
+                <div class="box">
                     <div id="billItems">
 
                     </div>
@@ -68,21 +68,31 @@
             </div>
         </div>
         <div class="row">
-            <div class="col col-md-12">
-                <h3>Final Bill:</h3>
-                <div class="form-inline">
-                    <label for="gratuityBox">Add Gratuity: </label>
-                    <select id="gratuityBox" class="combobox form-control">
-                        <option></option>
-                        <option value="10">10%</option>
-                        <option value="15">15%</option>
-                        <option value="20" selected>20%</option>
-                        <option value="25">25%</option>
-                        <option value="30">30%</option>
-                    </select>
-                </div>
-                <div id="results">
+            <div class="col col-md-6">
+                <div class="box">
+                    <h3>Final Bill:</h3>
+                    <div class="form-inline">
+                        <label for="gratuityBox">Add Gratuity: </label>
+                        <select id="gratuityBox" class="combobox form-control">
+                            <option></option>
+                            <option value="10">10%</option>
+                            <option value="15">15%</option>
+                            <option value="20" selected>20%</option>
+                            <option value="25">25%</option>
+                            <option value="30">30%</option>
+                        </select>
+                    </div>
+                    <div id="results">
 
+                    </div>
+                </div>
+            </div>
+            <div class="col col-md-6">
+                <div class="box">
+                    <h3>Individual Bills:</h3>
+                    <div id="personResults">
+
+                    </div>
                 </div>
             </div>
         </div>
