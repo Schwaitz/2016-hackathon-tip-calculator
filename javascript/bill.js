@@ -9,7 +9,9 @@ function Bill() {
     this.addPerson("Test Guy 1");
     this.addPerson("Test Guy 2");
     this.addPerson("Test Guy 3");
-    this.addItem()
+
+    this.addItem("Test Food", "$42", 1);
+    this.addItem("Test Other Food", "$24", 2);
 }
 
 Bill.prototype.addItem = function(name, price, personNumber) {
