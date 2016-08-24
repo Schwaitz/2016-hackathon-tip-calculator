@@ -18,9 +18,7 @@ if ($conn->connect_error) {
 	
 	
 
-		die('Unable to connect to mySQL database.
-		<br>
-		<a href="../test.php">Go Back</a>"');
+echo(json_encode("ConnectionError"));
 
 	
 }
@@ -33,9 +31,7 @@ if ($conn->connect_error) {
       if($result->num_rows == 1) {
         
         
-            die('Lobby name already exists.
-	<br>
-	<a href="../test.php">Go Back</a>');
+            echo(json_encode("Exists"));
       }
 						
       
@@ -46,29 +42,20 @@ if ($conn->connect_error) {
           $sql = "INSERT INTO lobby (name, password) VALUES ('$name', '$hash')";
 									
 										
-
          if($conn->query($sql) == true) {
 										
 
-		header("Location: ../test.php");
+		echo(json_encode("Created"));
 									
 	}
 
 	else{
 
-		echo($conn->error . "<br>");
-		die('Failed to insert into mySQL database.
-		<br>
-		<a href="../test.php">Go Back</a>');
-
+		echo(json_encode("Failed"));
+		
 }
+	}
 										
-										
-										
-      }
-      
-      
-  
-   $conn->close();
+$conn->close();
    
 ?>

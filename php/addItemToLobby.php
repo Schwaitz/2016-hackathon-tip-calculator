@@ -23,9 +23,7 @@ $arr = ["lobby" => $lobby, "name" => $name, "price" => $price, "person" => $pers
 if ($conn->connect_error) {
 	
 
-		die('Unable to connect to mySQL database.
-		<br>
-		<a href="../test.php">Go Back</a>"');
+		echo(json_encode("ConnectionError"))
 	
 }
  
@@ -38,14 +36,14 @@ if ($conn->connect_error) {
  if($conn->query($sql) == true) {
                                 
 
-    echo("Inserted");
+    echo(json_encode("Inserted"));
 									
 	}
     
 	else{
         
 
-	echo("Failed");
+	echo(json_encode("Failed"));
 }
 										
 										

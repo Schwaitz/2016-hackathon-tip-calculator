@@ -8,9 +8,7 @@ $conn = new mysqli(host, username, password, database);
 
 if ($conn->connect_error) {
  
-  die('Unable to connect to mySQL database.
-      <br>
-      <a href="./test.php">Try Again (Refresh)</a>"');
+  echo(json_encode("ConnectionError"));
 }
 
 $sql = "SELECT data FROM lobby WHERE name='$lobby' LIMIT 1;";
@@ -18,13 +16,13 @@ $sql = "SELECT data FROM lobby WHERE name='$lobby' LIMIT 1;";
       
 if(!$result = $conn->query($sql)){
     
-    die("Query Failed");
+    echo(json_encode("Failed"));
     
 } else {
     
     
     $data = $result->fetch_assoc()["data"];
-    echo($data);
+    echo(json_encode($data));
     
     
     
