@@ -21,9 +21,9 @@ $pass = $_POST["password"];
    $hash_check = password_hash($pass, PASSWORD_DEFAULT);
    
    
-  $sql = "SELECT password from lobby WHERE name='$lobby' LIMIT 1";
+  $sql = "SELECT password FROM lobby WHERE name='$lobby' LIMIT 1";
   
-	$result = $conn->query($sql);
+  $result = $conn->query($sql);
   
   $pa = $result->fetch_assoc();
 	

@@ -66,7 +66,25 @@ $(function() {
         data.forEach(function (id) {
             box.append($("<option></option>").val(id).text(id));
         });
-        box.combobox({appendId: "input"});
+        box.combobox({appendId: "Input"});
+
+        $("#joinLobbyButton").click(function () {
+            var lobbyId = $("#joinLobbyIdInput").val();
+            var lobbyPass = $("#joinLobbyPassword").val();
+
+            $.ajax({
+                method: "POST",
+                url: "./php/joinLobby.php",
+                cache: false,
+                dataType: "JSON",
+                data: {
+                    name: lobbyId,
+                    password: lobbyPass
+                }
+            }).done(function(data) {
+                alert(data);
+            });
+        });
     });
 });
 
