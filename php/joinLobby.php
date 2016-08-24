@@ -29,12 +29,12 @@ $pass = $_POST["password"];
 	
   if(password_verify($pass, $pa['password'])){
     
-     echo(json_encode("true"));
+     echo(json_encode(true));
 
     
     } else{
       
-      echo(json_encode("false"));
+      echo(json_encode(false));
 
       
 }

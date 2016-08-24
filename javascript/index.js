@@ -81,6 +81,8 @@ $(function() {
             }).done(function(data) {
                 if (data) {
                     jmodal.modal("hide");
+                } else {
+                    $("#joinForm").addClass("has-error");
                 }
             });
         });
