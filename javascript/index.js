@@ -53,6 +53,21 @@ $(function() {
         jmodal.modal("hide");
         setTimeout(function(){cmodal.modal("show")}, 100);
     });
+
+    $.ajax({
+        method: "GET",
+        url: "php/getLobbyList.php",
+        cache: false,
+        dataType: "JSON"
+    }).done(function(data) {
+        console.log(data);
+
+        var box = $("#joinLobbyId");
+        data.forEach(function (id) {
+            box.append($("<option></option>").val(id).text(id));
+        });
+        box.combobox({appendId: "input"});
+    });
 });
 
 function formatCurrency(number) {
