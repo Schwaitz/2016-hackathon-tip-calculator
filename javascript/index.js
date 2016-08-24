@@ -1,6 +1,7 @@
 $(function() {
-    var bill = new Bill();
+    $(".combobox").combobox({appendId: "Input"});
 
+    var bill = new Bill();
     $("#addItemButton").click(function () {
         //Get the values from the text boxes
         var nameField = $("#addItemName");
@@ -32,6 +33,7 @@ $(function() {
 });
 
 function formatCurrency(number) {
+    number = Math.round(number);
     return "$" + Math.floor(number / 100) + "." + ((number % 100) < 10 ? "0" : "") + (number % 100);
 }
 

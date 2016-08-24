@@ -81,6 +81,10 @@ Bill.prototype.calculateResults = function() {
     // Food items are stored in bill.items, and each item has a 'person' field and a 'price' field.
     // The 'person' field is the same as the person in bill.people
 
+    var gratuity = parseInt($("#gratuityBoxInput").val());
+    //Convert to a mult factor
+    gratuity = 1 + (gratuity / 100);
+
     var resultsBody = $("#results");
     resultsBody.empty();
 
@@ -89,10 +93,18 @@ Bill.prototype.calculateResults = function() {
         this.people[id].owed = 0;
     }, this);
 
+    var billTotal = 0;
+    var gratTotal = 0;
+    var subTotal = 0;
+
     //Add how much each item is worth to that person's total
     for (var i = 0; i < this.items.length; i++) {
         var item = this.items[i];
-        item.person.owed += item.price;
+        item.person.owed += item.price * gratuity;
+
+        subTotal += parseInt(item.price);
+        billTotal += item.price * gratuity;
+        gratTotal += (item.price * (gratuity - 1));
     }
 
     //Add their totals to the list of totals
@@ -102,13 +114,43 @@ Bill.prototype.calculateResults = function() {
             $("<div></div>")
                 .addClass("result")
                 .append(
-                    $("<strong></strong>")
-                        .text(person.name + ": ")
+                    $("<strong></strong>").text(person.name + ": ")
                 )
                 .append(
-                    $("<span></span>")
-                        .text(formatCurrency(person.owed))
+                    $("<span></span>").text(formatCurrency(person.owed))
                 )
-        )
+        );
     }, this);
+
+
+    resultsBody.append(
+        $("<div></div>")
+            .addClass("result")
+            .append(
+                $("<strong></strong>").text("Subtotal: ")
+            )
+            .append(
+                $("<span></span>").text(formatCurrency(subTotal))
+            )
+    );
+    resultsBody.append(
+        $("<div></div>")
+            .addClass("result")
+            .append(
+                $("<strong></strong>").text("Gratuity Total: ")
+            )
+            .append(
+                $("<span></span>").text(formatCurrency(gratTotal))
+            )
+    );
+    resultsBody.append(
+        $("<div></div>")
+            .addClass("result")
+            .append(
+                $("<strong></strong>").text("Total: ")
+            )
+            .append(
+                $("<span></span>").text(formatCurrency(billTotal))
+            )
+    );
 };
