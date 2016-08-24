@@ -39,7 +39,8 @@ if(!$result = $conn->query($sql)){
     
     <head>
         
-        <script src="./javascript/jquery-3.0.0.min.js" type="text/javascript"></script>
+            <script src="//code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="//code.jquery.com/ui/1.12.0/jquery-ui.min.js" type="text/javascript"></script>
         <title>Lobby</title>
         
         
