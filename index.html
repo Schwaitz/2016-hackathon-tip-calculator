@@ -97,5 +97,47 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="joinModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Join Lobby...</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <label for="joinLobbyId">
+                            Lobby Id:
+                            <input type="text" class="form-control" id="joinLobbyId" placeholder="0">
+                        </label>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" id="showCreateLobbyButton">Create Lobby</button>
+                    <button type="button" class="btn btn-primary" id="joinLobbyButton">Join Lobby</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="createModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Create Lobby...</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <label for="createLobbyName">
+                            Lobby Name:
+                            <input type="text" class="form-control" id="createLobbyName" placeholder="Dinner at McGuffin's">
+                        </label>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" id="showJoinLobbyButton">Join Lobby</button>
+                    <button type="button" class="btn btn-primary" id="createLobbyButton">Create Lobby</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
