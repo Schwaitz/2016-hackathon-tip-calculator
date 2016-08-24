@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once("./php/db-cont.php");
+require_once("./db-cont.php");
 
 $conn = new mysqli(host, username, password, database);
 $lobby_names = [];

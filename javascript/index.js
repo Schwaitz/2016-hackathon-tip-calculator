@@ -1,5 +1,5 @@
 $(function() {
-    $(".combobox").combobox({appendId: "Input"});
+    $("#gratuityBox").combobox({appendId: "Input"});
 
     var bill = new Bill();
     $("#addItemButton").click(function () {
@@ -47,16 +47,16 @@ $(function() {
 
     $("#showJoinLobbyButton").click(function () {
         cmodal.modal("hide");
-        setTimeout(function(){jmodal.modal("show")}, 100);
+        setTimeout(function(){jmodal.modal("show")}, 200);
     });
     $("#showCreateLobbyButton").click(function () {
         jmodal.modal("hide");
-        setTimeout(function(){cmodal.modal("show")}, 100);
+        setTimeout(function(){cmodal.modal("show")}, 200);
     });
 
     $.ajax({
         method: "GET",
-        url: "php/getLobbyList.php",
+        url: "./php/getLobbyList.php",
         cache: false,
         dataType: "JSON"
     }).done(function(data) {
