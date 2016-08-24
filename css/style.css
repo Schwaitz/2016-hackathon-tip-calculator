@@ -1,6 +1,8 @@
-.content {
-    width: 960px;
-    margin: 0 auto;
+@media(min-width: 992px) {
+    .content {
+        width: 992px;
+        margin: 0 auto;
+    }
 }
 
 .col {
