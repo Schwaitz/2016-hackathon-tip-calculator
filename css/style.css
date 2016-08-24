@@ -1,56 +1,40 @@
-html, body {
-    background: rgb(26, 116, 12);
-    font-family: Century Gothic, sans-serif;
-    background-image: url("../res/background.jpg");
-    background-size: cover;
+.content {
+    width: 960px;
+    margin: 0 auto;
+
+    /* Top -> bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+#main {
+    /* Left -> right */
+    display: flex;
+    flex-direction: row;
 }
 
 #people {
-    width: 16%;
-    margin: auto;
-    border: solid;
-    border-color:white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
-
 
 #bill {
-    padding-top: 50px;
-    width: 30%;
-    margin: auto;
-    border: solid;
-    border-color:#5A5AC4;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
-h1 {
-    font-size: 55px;
-    text-align: center;
-    color: white;
-    -webkit-text-fill-color: rgb(191, 138, 24);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+.billItem, .personItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    padding: 4px 4px 4px 14px;
 }
 
-h2 {
-    font-size: 45px;
-    text-align: center;
-    color: white;
-    -webkit-text-fill-color: rgb(63, 168, 204);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-}
-
-.fancyButton {
-    float: left;
-    background-color: rgb(63, 168, 204);
-    color: white;
-    border: none;
-    border-radius: 7.5px;
-    text-align: center;
-    font-size: 16px;
-}
-
-.billItem {
-    background-color: #eeeeee;
-   
-    margin-bottom: 10px;
+.delete-button {
 }

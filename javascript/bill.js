@@ -17,12 +17,11 @@ function Bill() {
 Bill.prototype.addItem = function(name, price, personNumber) {
     var item = new Bill.Item(this);
 
-    //TODO: Make text fields for this
     item.name = name;
     item.price = price;
     item.person = this.people[personNumber];
 
-    $("#bill").append(item.getJQ());
+    item.appendJQ();
 };
 
 Bill.prototype.deleteItem = function(item) {
@@ -33,16 +32,15 @@ Bill.prototype.deleteItem = function(item) {
 };
 
 Bill.prototype.addPerson = function(name) {
-    var person = new Bill.Person();
+    var person = new Bill.Person(this);
 
-    //TODO: Text field
     person.name = name;
 
     //Add them to the list
     person.id = this.nextPerson ++;
     this.people[person.id] = person;
 
-    $("#people").append(person.getJQ());
+    person.appendJQ();
 };
 
 Bill.prototype.deletePerson = function(item) {
