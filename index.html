@@ -1,10 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-    
+    <!-- JQuery -->
     <script src="./javascript/jquery-3.0.0.min.js" type="text/javascript"></script>
     <script src="./javascript/jquery-ui.min.js" type="text/javascript"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+    <!-- Structuring scripts -->
     <script src="./javascript/style.js" type="text/javascript"></script>
     <script src="./javascript/bill.js" type="text/javascript"></script>
     <script src="./javascript/person.js" type="text/javascript"></script>
@@ -12,33 +20,32 @@
     <script src="./javascript/index.js" type="text/javascript"></script>
 
     <title>Bill App</title>
-    
-    
 </head>
-
 <body>
-    <h1>Bill Payment</h1>
-    <h2>Version 1.0</h2>
+    <div class="content">
+        <h1>Bill Payment</h1>
+        <h2>Version 1.0</h2>
 
-    <div id="main">
-        <div id="people">
-            <div id="peopleItems">
+        <div id="main">
+            <div id="people">
+                <div id="peopleItems">
 
+                </div>
+                <label for="addPersonName">Person Name: <input type="text" id="addPersonName"></label>
+                <button id="addPersonButton" class="btn btn-success">+</button>
             </div>
-            <label for="addPersonName">Person Name: <input type="text" id="addPersonName"></label>
-            <button id="addPersonButton">+</button>
-        </div>
 
-        <div id="bill">
-            <div id="billItems">
+            <div id="bill">
+                <div id="billItems">
 
+                </div>
+                <label for="addItemName">Food Name: <input type="text" id="addItemName" placeholder="Name"></label>
+                <label for="addItemPrice">Price: <input type="text" id="addItemPrice" placeholder="Price"></label>
+                <label for="addItemPerson">Owner: <select id="addItemPerson"></select></label>
+                <button id="addItemButton" class="btn btn-success">+</button>
             </div>
-            <label for="addItemName">Food Name: <input type="text" id="addItemName" placeholder="Name"></label>
-            <label for="addItemPrice">Price: <input type="text" id="addItemPrice" placeholder="Price"></label>
-            <label for="addItemPerson">Owner: <select id="addItemPerson"></select></label>
-            <button id="addItemButton">+</button>
-        </div>
 
+        </div>
     </div>
 </body>
 </html>

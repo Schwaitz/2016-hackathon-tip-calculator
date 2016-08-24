@@ -32,7 +32,7 @@ Bill.prototype.deleteItem = function(item) {
 };
 
 Bill.prototype.addPerson = function(name) {
-    var person = new Bill.Person();
+    var person = new Bill.Person(this);
 
     person.name = name;
 

@@ -6,9 +6,11 @@ Bill.Person.prototype.appendJQ = function() {
     var jq = $("<div></div>");
     this.jq = jq;
     jq.text(this.name);
+    jq.addClass("personItem");
     jq.append(
         $("<button></button>")
             .text("Delete")
+            .addClass("btn btn-danger delete-button")
             .click(function() {
                 this.bill.deletePerson(this);
             }.bind(this))
