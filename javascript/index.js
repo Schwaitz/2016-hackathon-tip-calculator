@@ -79,7 +79,9 @@ $(function() {
                 dataType: "JSON",
                 data: { "name" : lobbyId, "password" : lobbyPass }
             }).done(function(data) {
-                alert(data);
+                if (data) {
+                    jmodal.modal("hide");
+                }
             });
         });
     });
