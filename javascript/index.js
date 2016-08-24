@@ -10,6 +10,7 @@ $(function() {
     $("#addPerson").click(function() {
         var name = prompt("Name");
 
-        peopleBody.append(createPerson(name));
+        //TODO: Text field
+        bill.addPerson(prompt("Name"));
     })
 });
