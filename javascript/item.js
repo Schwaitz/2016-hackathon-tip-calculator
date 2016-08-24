@@ -3,19 +3,24 @@ Bill.Item = function(bill) {
 };
 
 Bill.Item.prototype.getJQ = function() {
-    var item = $("<div></div>");
-    item.attr({
+    var jq = $("<div></div>");
+    this.jq = jq;
+    jq.attr({
         "data-name": this.name,
         "data-price": this.price
     });
-    item.text(this.person.name + " owes " + this.price + " for the " + this.name);
-    item.addClass("billItem");
-    item.append(
+    jq.text(this.person.name + " owes " + this.price + " for the " + this.name);
+    jq.addClass("billItem");
+    jq.append(
         $("<button></button>")
             .text("Delete")
             .click(function() {
-                item.bill.deleteItem(item);
-            })
+                this.bill.deleteItem(this);
+            }.bind(this))
     );
-    return item;
+    return jq;
+};
+
+Bill.Item.prototype.removeJQ = function() {
+    this.jq.remove();
 };

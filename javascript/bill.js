@@ -28,7 +28,7 @@ Bill.prototype.addItem = function(name, price, personNumber) {
 Bill.prototype.deleteItem = function(item) {
     item.removeJQ();
 
-    //Remove item from our items
+    //Remove this from our items
     this.items.splice(this.items.indexOf(item), 1);
 };
 
@@ -41,4 +41,13 @@ Bill.prototype.addPerson = function(name) {
     //Add them to the list
     person.id = this.nextPerson ++;
     this.people[person.id] = person;
+
+    $("#people").append(person.getJQ());
+};
+
+Bill.prototype.deletePerson = function(item) {
+    item.removeJQ();
+
+    //Remove this from our items
+    this.people.splice(this.people.indexOf(item), 1);
 };

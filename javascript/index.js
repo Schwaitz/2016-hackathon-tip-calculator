@@ -1,8 +1,5 @@
-var bill = new Bill();
-
 $(function() {
-    var billBody = $("#bill");
-    var peopleBody = $("#people");
+    var bill = new Bill();
 
     $("#addButton").click(function() {
         //TODO: Text fields
