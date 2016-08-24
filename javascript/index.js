@@ -1,13 +1,13 @@
 $(function() {
     var bill = new Bill();
 
-    $("#addItemButton").click(function() {
+    $("#addItemButton").click(function () {
         //Get the values from the text boxes
         var nameField = $("#addItemName");
         var priceField = $("#addItemPrice");
         var personField = $("#addItemPerson");
         var name = nameField.val();
-        var price = priceField.val();
+        var price = priceField.val() * 100; //Convert to cents
         var person = personField.val();
 
         //Clear them so we can use them next time
@@ -17,11 +17,8 @@ $(function() {
 
         //Add the item to the bill
         bill.addItem(name, price, person);
-
-        //Update how much everyone has to pay
-        calculateResults();
     });
-    $("#addPersonButton").click(function() {
+    $("#addPersonButton").click(function () {
         //Get the value from the text box
         var nameField = $("#addPersonName");
         var name = nameField.val();
@@ -31,14 +28,10 @@ $(function() {
 
         //Add the person to the bill
         bill.addPerson(name);
-
-        //Update how much everyone has to pay
-        calculateResults();
     });
-
-    function calculateResults() {
-        //Calculate, for each person in bill.people, how much they owe (sum of all food items they own).
-        // Food items are stored in bill.items, and each item has a 'person' field and a 'price' field.
-        // The 'person' field is the same as the person in bill.people
-    }
 });
+
+function formatCurrency(number) {
+    return "$" + Math.floor(number / 100) + "." + ((number % 100) < 10 ? "0" : "") + (number % 100);
+}
+
