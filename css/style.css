@@ -5,9 +5,21 @@ html, body {
     background-size: cover;
 }
 
-#main {
-    width: 40%;
+#people {
+    width: 16%;
     margin: auto;
+    border: solid;
+    border-color:white;
+}
+
+
+#bill {
+    
+    margin-top: 50px;
+    width: 16%;
+    margin: auto;
+    border: solid;
+    border-color:red;
 }
 
 h1 {
@@ -28,10 +40,7 @@ h2 {
     -webkit-text-stroke-color: black;
 }
 
-
 .fancyButton {
-    height: 30px;
-    width: 200px;
     float: left;
     margin: auto;
     background-color: rgb(63, 168, 204);
