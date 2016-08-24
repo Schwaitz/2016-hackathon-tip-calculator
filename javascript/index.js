@@ -2,14 +2,26 @@ $(function() {
     var bill = new Bill();
 
     $("#addItemButton").click(function() {
-        var name = $("#addItemName").val();
-        var price = $("#addItemPrice").val();
-        var person  = $("#addItemPerson").val();
+        var nameField = $("#addItemName");
+        var priceField = $("#addItemPrice");
+        var personField = $("#addItemPerson");
+
+        var name = nameField.val();
+        var price = priceField.val();
+        var person = personField.val();
+
+        nameField.val("");
+        priceField.val("");
+        personField.val("");
 
         bill.addItem(name, price, person);
     });
     $("#addPersonButton").click(function() {
-        var name = $("#addPersonName").val();
+        var nameField = $("#addPersonName");
+
+        var name = nameField.val();
+
+        nameField.val("");
 
         bill.addPerson(name);
     })
