@@ -5,10 +5,9 @@ html, body {
     background-size: cover;
 }
 
-#main form {
+#main {
     width: 40%;
     margin: auto;
-    padding-left: 20px;
 }
 
 a {
@@ -28,16 +27,16 @@ h1 {
     font-size: 55px;
     text-align: center;
     color: white;
-    -webkit-text-fill-color: rgb(215, 50, 55);
+    -webkit-text-fill-color: rgb(191, 138, 24);
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-color: black;
 }
 
 h2 {
     font-size: 45px;
     text-align: center;
     color: white;
-    -webkit-text-fill-color: rgb(163, 219, 129);
+    -webkit-text-fill-color: rgb(63, 168, 204);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
