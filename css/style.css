@@ -10,19 +10,6 @@ html, body {
     margin: auto;
 }
 
-a {
-    position: relative;
-    display: table;
-    text-align: center;
-    margin: auto;
-    font-size: 35px;
-    color: white;
-    -webkit-text-fill-color: rgb(233, 255, 0);
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: black;
-    text-decoration: none;
-}
-
 h1 {
     font-size: 55px;
     text-align: center;
@@ -42,12 +29,12 @@ h2 {
 }
 
 
-#fancyButton {
+.fancyButton {
     height: 30px;
     width: 200px;
     float: left;
     margin: auto;
-    background-color: rgb(30,175,255);
+    background-color: rgb(63, 168, 204);
     color: white;
     border: none;
     border-radius: 7.5px;
