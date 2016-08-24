@@ -37,6 +37,8 @@ $(function() {
     });
 
     function calculateResults() {
-
+        //Calculate, for each person in bill.people, how much they owe (sum of all food items they own).
+        // Food items are stored in bill.items, and each item has a 'person' field and a 'price' field.
+        // The 'person' field is the same as the person in bill.people
     }
 });
