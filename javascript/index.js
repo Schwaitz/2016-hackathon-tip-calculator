@@ -30,6 +30,21 @@ $(function() {
         //Add the person to the bill
         bill.addPerson(name);
     });
+
+    var jmodal = $("#joinModal");
+    jmodal.modal({backdrop: "static", keyboard: false, show: true});
+
+    var cmodal = $("#createModal");
+    cmodal.modal({backdrop: "static", keyboard: false, show: false});
+
+    $("#showJoinLobbyButton").click(function () {
+        cmodal.modal("hide");
+        setTimeout(function(){jmodal.modal("show")}, 100);
+    });
+    $("#showCreateLobbyButton").click(function () {
+        jmodal.modal("hide");
+        setTimeout(function(){cmodal.modal("show")}, 100);
+    });
 });
 
 function formatCurrency(number) {
