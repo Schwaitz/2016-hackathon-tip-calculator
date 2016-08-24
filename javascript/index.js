@@ -32,10 +32,18 @@ $(function() {
     });
 
     var jmodal = $("#joinModal");
-    jmodal.modal({backdrop: "static", keyboard: false, show: true});
+    jmodal.modal({
+        backdrop: "static",
+        keyboard: false,
+        show: true
+    });
 
     var cmodal = $("#createModal");
-    cmodal.modal({backdrop: "static", keyboard: false, show: false});
+    cmodal.modal({
+        backdrop: "static",
+        keyboard: false,
+        show: false
+    });
 
     $("#showJoinLobbyButton").click(function () {
         cmodal.modal("hide");
