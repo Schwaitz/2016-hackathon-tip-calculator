@@ -5,6 +5,7 @@ session_start();
 require_once("./php/db-cont.php");
 
 $conn = new mysqli(host, username, password, database);
+$lobby_names = [];
 
 if ($conn->connect_error) {
  
@@ -23,16 +24,14 @@ if(!$result = $conn->query($sql)){
     
 }
 
-$arr = $result->fetch_array(); 
 
-   foreach($arr as $key){
-    
-    echo($arr["name"] . "<br>");
-    
+   while($row = $result->fetch_assoc()) {
+       
+       array_push($lobby_names, $row['name']);
+       
    }
-   
-   
-   var_dump($arr);
+
+
 
 ?>
 
@@ -49,16 +48,42 @@ $arr = $result->fetch_array();
     
     <body>
         
-        <h1>Test</h1>
+        <h1>Lobbies</h1>
         
-        <ul>
+        <ul style="list-style: none;">
             
-            <li>Lobby One</li>
-            <li>Lobby Two</li>
-            <li>Lobby Three</li>
+            <?php
+            
+              foreach($lobby_names as $key){
+    
+                echo("<li>
+                    <label style='float: left; margin-right: 20px;'>$key</label>
+                    <form action='./lobby.php' method='POST'>
+                    <input type='hidden' name='name', value='$key'>
+                    <input style='float: left; type='password' name='password' placeholder='password' value=''>
+                    <input style='float: left; 'type='submit' value='Go'>
+                    </form>
+                    </li>");
+                
+                echo("<br>");
+    
+              }
+            
+            
+            ?>
             
             
         </ul>
+        
+        
+        
+ <form action="./php/createLobby.php" method="post">
+    
+                <p class="form_label">Create Lobby</p>
+                <input placeholder="name" type="text" name="name" value="">
+                <input placeholder="password" type="password" name="password" value="">
+                <input type="submit" value="Submit">
+            </form>
         
         
         

@@ -1,23 +1,29 @@
 $(document).ready(function() {
+    
 
 
+    update_lobby();
+    var interval = setInterval(update_lobby, 5000);
 
 
 });
 
-function check_status() {
+function update_lobby() {
 
+var name = $("#lobbyName").text();
 
     $.ajax({
-        type: "GET",
-        url: "../ajax/check_status.php",
+        url: "../ajax/update_lobby.php",
+        method: "POST",
+        data: {"lobby" : name},
         dataType: "text"
 
     })
 
-    .done(function(status) {
+    .done(function(response) {
+        
+        $("#data").text(response);
 
-        alert(status);
 
     })
 
@@ -27,6 +33,5 @@ function check_status() {
     });
 
 
-}
 
 }
