@@ -1,28 +1,16 @@
 .content {
     width: 960px;
     margin: 0 auto;
-
-    /* Top -> bottom */
-    display: flex;
-    flex-direction: column;
 }
 
-#main {
-    /* Left -> right */
-    display: flex;
-    flex-direction: row;
+.col {
+    padding: 5px;
 }
 
-#people {
-    padding: 20px;
+.box {
     border: 1px solid #ccc;
     border-radius: 8px;
-}
-
-#bill {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    padding: 15px;
 }
 
 .billItem, .personItem {

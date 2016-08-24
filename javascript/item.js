@@ -9,7 +9,7 @@ Bill.Item.prototype.appendJQ = function() {
         "data-name": this.name,
         "data-price": this.price
     });
-    jq.text(this.person.name + " owes " + this.price + " for the " + this.name);
+    jq.text(this.person.name + " owes " + formatCurrency(this.price) + " for the " + this.name);
     jq.addClass("billItem");
     jq.append(
         $("<button></button>")

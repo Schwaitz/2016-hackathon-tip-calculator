@@ -21,4 +21,5 @@ Bill.Person.prototype.appendJQ = function() {
 
 Bill.Person.prototype.removeJQ = function() {
     this.jq.remove();
+    $("#addItemPerson").children("option[value=" + this.id + "]").remove();
 };
