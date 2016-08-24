@@ -104,12 +104,14 @@
                     <h4 class="modal-title">Join Lobby...</h4>
                 </div>
                 <div class="modal-body">
-                    <p>
+                    <div class="form-group">
                         <label for="joinLobbyId">Lobby Id:</label>
                         <select id="joinLobbyId" class="combobox form-control">
                             <option></option>
                         </select>
-                    </p>
+                        <label for="joinLobbyPassword">Password:</label>
+                        <input type="password" class="form-control" id="joinLobbyPassword" placeholder="">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn" id="showCreateLobbyButton">Create Lobby</button>
@@ -125,12 +127,12 @@
                     <h4 class="modal-title">Create Lobby...</h4>
                 </div>
                 <div class="modal-body">
-                    <p>
-                        <label for="createLobbyName">
-                            Lobby Name:
-                            <input type="text" class="form-control" id="createLobbyName" placeholder="Dinner at McGuffin's">
-                        </label>
-                    </p>
+                    <div class="form-group">
+                        <label for="createLobbyName">Lobby Name:</label>
+                        <input type="text" class="form-control" id="createLobbyName" placeholder="Dinner at McGuffin's">
+                        <label for="createLobbyPassword">Password:</label>
+                        <input type="password" class="form-control" id="createLobbyPassword" placeholder="">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn" id="showJoinLobbyButton">Join Lobby</button>
