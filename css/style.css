@@ -14,12 +14,11 @@ html, body {
 
 
 #bill {
-    
-    margin-top: 50px;
-    width: 16%;
+    padding-top: 50px;
+    width: 30%;
     margin: auto;
     border: solid;
-    border-color:red;
+    border-color:#5A5AC4;
 }
 
 h1 {
@@ -42,7 +41,6 @@ h2 {
 
 .fancyButton {
     float: left;
-    margin: auto;
     background-color: rgb(63, 168, 204);
     color: white;
     border: none;
