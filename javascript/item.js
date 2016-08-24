@@ -2,7 +2,7 @@ Bill.Item = function(bill) {
     this.bill = bill;
 };
 
-Bill.Item.prototype.getJQ = function() {
+Bill.Item.prototype.appendJQ = function() {
     var jq = $("<div></div>");
     this.jq = jq;
     jq.attr({
@@ -18,7 +18,7 @@ Bill.Item.prototype.getJQ = function() {
                 this.bill.deleteItem(this);
             }.bind(this))
     );
-    return jq;
+    $("#billItems").append(jq);
 };
 
 Bill.Item.prototype.removeJQ = function() {

@@ -8,7 +8,7 @@
     <script src="./javascript/style.js" type="text/javascript"></script>
     <script src="./javascript/bill.js" type="text/javascript"></script>
     <script src="./javascript/person.js" type="text/javascript"></script>
-    <script src="javascript/item.js" type="text/javascript"></script>
+    <script src="./javascript/item.js" type="text/javascript"></script>
     <script src="./javascript/index.js" type="text/javascript"></script>
 
     <title>Bill App</title>
@@ -21,49 +21,22 @@
     <h2>Version 1.0</h2>
 
     <div id="main">
-        
         <div id="people">
-            
-            <select>
-                
-                <option>Test</option>
-                <option>Test2</option>
-                <option>Test3</option>
-                
-                
-            </select>
-            
-            
-            
-        </div>
-        
-        
-        
-        <div id="bill">
-                    
-            <div id="items">
-                
-                
-                <li style="list-style: none;">
-                    <input type=text placeholder="name"></input>
-                    <input type=text placeholder="price">
-                    <select id="person">
-                        
-                        <option>Joe</option>
-                        <option>John</option>
-                        <option>James</option>
-                        
-                    </select>
-                </li>
-                
-                
+            <div id="peopleItems">
+
             </div>
+            <label for="addPersonName">Person Name: <input type="text" id="addPersonName"></label>
+            <button id="addPersonButton">+</button>
+        </div>
 
+        <div id="bill">
+            <div id="billItems">
 
-        <button style="width: 30px; height:30px; margin-right: 20px;" id="addButton" class="fancyButton">+</button>
-        <button style="width: 150px; height:30px;" id="submit" class="fancyButton">Submit</button>
-        
-        
+            </div>
+            <label for="addItemName">Food Name: <input type="text" id="addItemName" placeholder="Name"></label>
+            <label for="addItemPrice">Price: <input type="text" id="addItemPrice" placeholder="Price"></label>
+            <label for="addItemPerson">Owner: <select id="addItemPerson"></select></label>
+            <button id="addItemButton">+</button>
         </div>
 
     </div>

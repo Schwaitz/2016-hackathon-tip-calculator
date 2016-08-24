@@ -1,19 +1,15 @@
 $(function() {
     var bill = new Bill();
 
-    $("#addButton").click(function() {
-        //TODO: Text fields
-        var name = prompt("Name");
-        var price = prompt("Price");
-        var person  = prompt("Person #");
-
+    $("#addItemButton").click(function() {
+        var name = $("#addItemName").val();
+        var price = $("#addItemPrice").val();
+        var person  = $("#addItemPerson").val();
 
         bill.addItem(name, price, person);
     });
-    $("#addPerson").click(function() {
-        //TODO: Text field
-        var name = prompt("Name");
-
+    $("#addPersonButton").click(function() {
+        var name = $("#addPersonName").val();
 
         bill.addPerson(name);
     })
