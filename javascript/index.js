@@ -77,10 +77,7 @@ $(function() {
                 url: "./php/joinLobby.php",
                 cache: false,
                 dataType: "JSON",
-                data: {
-                    name: lobbyId,
-                    password: lobbyPass
-                }
+                data: { "name" : lobbyId, "password" : lobbyPass }
             }).done(function(data) {
                 alert(data);
             });
