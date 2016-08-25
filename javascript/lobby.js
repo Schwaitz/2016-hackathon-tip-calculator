@@ -100,7 +100,7 @@ Lobby.prototype.update = function() {
                     return test;
             });
             if (typeof(person) === "undefined") {
-                this.bill.addPerson(item.name);
+                this.bill.addPerson(item.person);
                 person = this.bill.people.find(function(test) {
                     if (test.name === item.person)
                         return test;
