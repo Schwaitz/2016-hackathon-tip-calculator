@@ -17,6 +17,9 @@ if ($query->execute()) {
     die(json_encode("Failed" . $conn->error));
 }
 
+$old["items"] = ($old["items"] === null ? [] : $old["items"]);
+$old["people"] = ($old["people"] === null ? [] : $old["people"]);
+
 $old["items"] = array_filter($old["items"], function($thing) use($name) {
     return $thing["name"] !== $name;
 });

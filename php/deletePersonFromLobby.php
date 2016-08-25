@@ -20,6 +20,9 @@ if ($query->execute()) {
     die(json_encode("Failed" . $conn->error));
 }
 
+$old["items"] = ($old["items"] === null ? [] : $old["items"]);
+$old["people"] = ($old["people"] === null ? [] : $old["people"]);
+
 $old["people"] = array_filter($old["people"], function($thing) use($name) {
     return $thing["name"] !== $name;
 });

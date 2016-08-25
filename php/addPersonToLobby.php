@@ -23,6 +23,9 @@ if ($query->execute()) {
     echo(json_encode("Failed" . $conn->error));
 }
 
+$old["items"] = ($old["items"] === null ? [] : $old["items"]);
+$old["people"] = ($old["people"] === null ? [] : $old["people"]);
+
 $old["people"][] = $arr;
 
 $json = json_encode($old);
