@@ -97,13 +97,13 @@ Lobby.prototype.update = function() {
         data.items.forEach(function(item) {
             var testName = item.person;
             var person = this.bill.people[Object.keys(this.bill.people).find(function(test) {
-                if (this.bill.people[test] === testName)
+                if (this.bill.people[test].name === testName)
                     return test;
             }, this)];
             if (typeof(person) === "undefined") {
                 this.bill.addPerson(new Bill.Person(this.bill, item.person));
                 person = this.bill.people[Object.keys(this.bill.people).find(function(test) {
-                    if (this.bill.people[test] === testName)
+                    if (this.bill.people[test].name === testName)
                         return test;
                 }, this)];
             }
