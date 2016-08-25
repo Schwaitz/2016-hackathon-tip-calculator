@@ -111,6 +111,7 @@ $(function() {
             }
         }).done(function(data) {
             if (data) {
+                cmodal.modal("hide");
                 lobby = new Lobby(lobbyId);
                 lobby.update();
                 setInterval(lobby.update.bind(lobby), 1000);
