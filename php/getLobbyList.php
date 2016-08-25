@@ -4,38 +4,15 @@ session_start();
 
 require_once("./db-cont.php");
 
-$conn = new mysqli(host, username, password, database);
 $lobby_names = [];
 
-if ($conn->connect_error) {
- 
-  echo(json_encode("ConnectionError"));
-}
-
-    
-$sql = "SELECT name FROM lobby;";
-      
-      
-if(!$result = $conn->query($sql)){
-    
-    echo(json_encode("Failed"));
-    
+$query = $conn->prepare("SELECT name FROM lobby;");
+if (!$query->execute()) {
+    echo(json_encode("Failed " . $conn->error));
 } else {
+    while (($row = $query->fetch(PDO::FETCH_ASSOC)) !== false) {
+        array_push($lobby_names, $row['name']);
+    }
 
-
-   while($row = $result->fetch_assoc()) {
-       
-       array_push($lobby_names, $row['name']);
-       
-   }
-   
-   
-   echo(json_encode($lobby_names));
-   
-   
+    echo(json_encode($lobby_names));
 }
-
-$conn->close();
-
-
-?>
