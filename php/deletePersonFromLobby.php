@@ -20,6 +20,8 @@ if ($query->execute()) {
     die(json_encode("Failed" . $conn->error));
 }
 
+print_r($old);
+
 $old["people"] = array_filter($old["people"], function($thing) use($name) {
     return $thing["name"] !== $name;
 });
