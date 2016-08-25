@@ -22,6 +22,8 @@ Bill.prototype.addItem = function(name, price, personNumber) {
     //And actually add it to the page
     item.appendJQ();
 
+    this.lobby.addItem(item);
+
     //And update the results
     this.calculateResults();
 };
@@ -33,6 +35,8 @@ Bill.prototype.deleteItem = function(item) {
 
     //Remove this from our items
     this.items.splice(this.items.indexOf(item), 1);
+
+    this.lobby.deleteItem(item);
 
     //And update the results
     this.calculateResults();
