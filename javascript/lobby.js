@@ -95,14 +95,15 @@ Lobby.prototype.update = function() {
             this.bill.addPerson(new Bill.Person(this.bill, person.name));
         }, this);
         data.items.forEach(function(item) {
-            var person = this.bill.people.find(function(test) with(item) {
-                if (test.name === item.person)
+            var testName = item.person;
+            var person = this.bill.people.find(function(test) {
+                if (test.name === testName)
                     return test;
             });
             if (typeof(person) === "undefined") {
                 this.bill.addPerson(new Bill.Person(this.bill, item.person));
-                person = this.bill.people.find(function(test) with(item) {
-                    if (test.name === item.person)
+                person = this.bill.people.find(function(test) {
+                    if (test.name === testName)
                         return test;
                 });
             }
