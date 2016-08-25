@@ -51,11 +51,11 @@ Lobby.prototype.update = function() {
 
         //Delete everything we have and replace it with the data
         while (this.bill.items.length) {
-            var item = this.bill.items[i];
+            var item = this.bill.items[0];
             this.bill.deleteItem(item);
         }
         while (this.bill.people.length) {
-            var person = this.bill.people[i];
+            var person = this.bill.people[0];
             this.bill.deletePerson(person);
         }
     }.bind(this));

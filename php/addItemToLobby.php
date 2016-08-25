@@ -19,7 +19,7 @@ $query->bindParam(":lobby", $lobby);
 if ($query->execute()) {
 
     $old = json_decode($query->fetchColumn(0), true);
-    
+
 
 } else {
     echo(json_encode("Failed" . $conn->error));
@@ -29,8 +29,9 @@ $old["items"][] = $arr;
 
 $json = json_encode($old);
 
-$query = $conn->prepare("INSERT INTO lobby (data) VALUES (:data)");
+$query = $conn->prepare("UPDATE lobby SET data = :data WHERE name = :lobby");
 $query->bindParam(":data", $json);
+$query->bindParam(":lobby", $lobby);
 
 if ($query->execute()) {
     echo(json_encode("Inserted"));
