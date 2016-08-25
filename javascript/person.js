@@ -1,5 +1,6 @@
-Bill.Person = function(bill) {
+Bill.Person = function(bill, name) {
     this.bill = bill;
+    this.name = name;
 };
 
 Bill.Person.prototype.appendJQ = function() {

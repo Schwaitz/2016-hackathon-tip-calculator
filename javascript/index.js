@@ -17,7 +17,7 @@ $(function() {
         personField.val("");
 
         //Add the item to the bill
-        lobby.bill.addItem(name, price, person);
+        lobby.addItem(new Bill.Item(lobby.bill, name, price, person));
     });
     $("#addPersonButton").click(function () {
         //Get the value from the text box
@@ -28,7 +28,7 @@ $(function() {
         nameField.val("");
 
         //Add the person to the bill
-        lobby.bill.addPerson(name);
+        lobby.bill.addPerson(new Bill.Person(lobby.bill, name));
     });
 
     var jmodal = $("#joinModal");

@@ -8,14 +8,7 @@ function Bill() {
 }
 
 //Add a food item to the bill (and page)
-Bill.prototype.addItem = function(name, price, personNumber) {
-    var item = new Bill.Item(this);
-
-    //Set up the item's fields
-    item.name = name;
-    item.price = price;
-    item.person = this.people[personNumber];
-
+Bill.prototype.addItem = function(item) {
     //Add the item to the list
     this.items.push(item);
 
@@ -43,12 +36,7 @@ Bill.prototype.deleteItem = function(item) {
 };
 
 //Add a person to the bill (and page)
-Bill.prototype.addPerson = function(name) {
-    var person = new Bill.Person(this);
-
-    //Set up the person's fields
-    person.name = name;
-
+Bill.prototype.addPerson = function(person) {
     //Add them to the list
     person.id = this.nextPerson ++;
     this.people[person.id] = person;

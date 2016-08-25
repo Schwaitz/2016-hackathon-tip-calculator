@@ -92,7 +92,7 @@ Lobby.prototype.update = function() {
         }, this);
 
         data.people.forEach(function(person) {
-            this.bill.addPerson(person.name);
+            this.bill.addPerson(new Bill.Person(this.bill, person.name));
         }, this);
         data.items.forEach(function(item) {
             var person = this.bill.people.find(function(test) {
@@ -100,13 +100,13 @@ Lobby.prototype.update = function() {
                     return test;
             });
             if (typeof(person) === "undefined") {
-                this.bill.addPerson(item.person);
+                this.bill.addPerson(new Bill.Person(this.bill, item.person));
                 person = this.bill.people.find(function(test) {
                     if (test.name === item.person)
                         return test;
                 });
             }
-            this.bill.addItem(item.name, item.price, person);
+            this.bill.addItem(new Bill.Item(this.bill, item.name, item.price, person));
         }, this);
     }.bind(this));
 };

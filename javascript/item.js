@@ -1,5 +1,9 @@
-Bill.Item = function(bill) {
+Bill.Item = function(bill, name, price, personNumber) {
     this.bill = bill;
+    //Set up the item's fields
+    this.name = name;
+    this.price = price;
+    this.person = this.bill.people[personNumber];
 };
 
 Bill.Item.prototype.appendJQ = function() {
