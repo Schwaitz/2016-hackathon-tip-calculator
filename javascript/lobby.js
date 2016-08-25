@@ -50,11 +50,11 @@ Lobby.prototype.update = function() {
         console.log(data);
 
         //Delete everything we have and replace it with the data
-        while (this.bill.items.count) {
+        while (this.bill.items.length) {
             var item = this.bill.items[i];
             this.bill.deleteItem(item);
         }
-        while (this.bill.people.count) {
+        while (this.bill.people.length) {
             var person = this.bill.people[i];
             this.bill.deletePerson(person);
         }
