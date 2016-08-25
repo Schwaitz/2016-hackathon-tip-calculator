@@ -2,6 +2,8 @@ $(function() {
     $("#gratuityBox").combobox({appendId: "Input"});
 
     var bill = new Bill();
+    var lobby = "";
+
     $("#addItemButton").click(function () {
         //Get the values from the text boxes
         var nameField = $("#addItemName");
@@ -84,6 +86,8 @@ $(function() {
             }).done(function(data) {
                 if (data) {
                     jmodal.modal("hide");
+                    lobby = lobbyId;
+                    updateFromLobby();
                 } else {
                     $("#joinForm").addClass("has-error");
                 }
@@ -105,9 +109,36 @@ $(function() {
                 "password" : lobbyPass
             }
         }).done(function(data) {
-            console.log(data);
+            if (data) {
+                lobby = lobbyId;
+                updateFromLobby();
+            } else {
+                //???
+            }
         });
     });
+
+    function updateFromLobby() {
+        $.ajax({
+            method: "POST",
+            url: "./php/updateLobby.php",
+            cache: false,
+            dataType: "JSON",
+            data: {
+                "lobby": lobby
+            }
+        }).done(function(data) {
+            console.log(data);
+
+            //Delete everything we have and replace it with the data
+            bill.items.forEach(function(item) {
+                bill.deleteItem(item);
+            });
+            bill.people.forEach(function(person) {
+                bill.deletePerson(person);
+            });
+        });
+    }
 });
 
 function formatCurrency(number) {
