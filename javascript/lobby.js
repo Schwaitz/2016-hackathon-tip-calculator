@@ -79,6 +79,8 @@ Lobby.prototype.update = function() {
     }).done(function(data) {
         console.log(data);
 
+        data = JSON.parse(data);
+
         //Delete everything we have and replace it with the data
         while (this.bill.items.length) {
             var item = this.bill.items[0];
