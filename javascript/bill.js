@@ -5,14 +5,6 @@ function Bill() {
 
     //Unique id counter
     this.nextPerson = 1;
-
-    //Testing
-    this.addPerson("Test Guy 1");
-    this.addPerson("Test Guy 2");
-    this.addPerson("Test Guy 3");
-
-    this.addItem("Test Food", "4200", 1);
-    this.addItem("Test Other Food", "2400", 2);
 }
 
 //Add a food item to the bill (and page)

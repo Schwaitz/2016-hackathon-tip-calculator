@@ -1,7 +1,6 @@
+var lobby = null;
 $(function() {
     $("#gratuityBox").combobox({appendId: "Input"});
-
-    var lobby = null;
 
     $("#addItemButton").click(function () {
         //Get the values from the text boxes
