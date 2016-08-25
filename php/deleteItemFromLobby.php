@@ -13,22 +13,14 @@ $query = $conn->prepare("SELECT data FROM lobby where name=:lobby LIMIT 1");
 $query->bindParam(":lobby", $lobby);
 
 if ($query->execute()) {
-
     $old = json_decode($query->fetchColumn(0), true);
-    
-
 } else {
-    echo(json_encode("Failed" . $conn->error));
+    die(json_encode("Failed" . $conn->error));
 }
 
-foreach($old["items"] as $key){
-    
-    if($key == $name){
-        unset($old["items"][$key]);
-    }
-    
-}
-
+$old["item"] = array_filter($old["item"], function($thing) use($name) {
+    return $thing["name"] !== $name;
+});
 
 $json = json_encode($old);
 

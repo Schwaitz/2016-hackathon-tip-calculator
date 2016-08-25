@@ -8,7 +8,6 @@ $lobby = $_POST['lobby'];
 $name = $_POST['name'];
 
 
-$json = json_encode($arr);
 $query = $conn->prepare("SELECT data FROM lobby where name=:lobby LIMIT 1");
 $query->bindParam(":lobby", $lobby);
 
@@ -18,17 +17,12 @@ if ($query->execute()) {
     
 
 } else {
-    echo(json_encode("Failed" . $conn->error));
+    die(json_encode("Failed" . $conn->error));
 }
 
-foreach($old["people"] as $key){
-    
-    if($key == $name){
-        unset($old["people"][$key]);
-    }
-    
-}
-
+$old["people"] = array_filter($old["filter"], function($thing) use($name) {
+    return $thing["name"] !== $name;
+});
 
 $json = json_encode($old);
 
