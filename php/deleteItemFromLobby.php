@@ -8,7 +8,6 @@ $lobby = $_POST['lobby'];
 $name = $_POST['name'];
 
 
-$json = json_encode($arr);
 $query = $conn->prepare("SELECT data FROM lobby where name=:lobby LIMIT 1");
 $query->bindParam(":lobby", $lobby);
 
@@ -18,7 +17,7 @@ if ($query->execute()) {
     die(json_encode("Failed" . $conn->error));
 }
 
-$old["item"] = array_filter($old["item"], function($thing) use($name) {
+$old["items"] = array_filter($old["items"], function($thing) use($name) {
     return $thing["name"] !== $name;
 });
 
