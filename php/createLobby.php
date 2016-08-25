@@ -20,9 +20,5 @@ if ($query->rowCount() == 1) {
     $query->bindParam(":name", $name);
     $query->bindParam(":hash", $hash);
 
-    if ($query->execute()) {
-        echo(json_encode("Created"));
-    } else {
-        echo(json_encode("Failed"));
-    }
+    $query->execute();
 }

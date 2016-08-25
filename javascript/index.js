@@ -77,7 +77,10 @@ $(function() {
                 url: "./php/joinLobby.php",
                 cache: false,
                 dataType: "JSON",
-                data: { "name" : lobbyId, "password" : lobbyPass }
+                data: {
+                    "name" : lobbyId,
+                    "password" : lobbyPass
+                }
             }).done(function(data) {
                 if (data) {
                     jmodal.modal("hide");
@@ -85,6 +88,24 @@ $(function() {
                     $("#joinForm").addClass("has-error");
                 }
             });
+        });
+    });
+
+    $("#createLobbyButton").click(function () {
+        var lobbyId = $("#createLobbyName").val();
+        var lobbyPass = $("#createLobbyPassword").val();
+
+        $.ajax({
+            method: "POST",
+            url: "./php/createLobby.php",
+            cache: false,
+            dataType: "JSON",
+            data: {
+                "name" : lobbyId,
+                "password" : lobbyPass
+            }
+        }).done(function(data) {
+            console.log(data);
         });
     });
 });
