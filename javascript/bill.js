@@ -56,6 +56,8 @@ Bill.prototype.addPerson = function(name) {
     //And actually add it to the page
     person.appendJQ();
 
+    this.lobby.addPerson(person);
+
     //And update the results
     this.calculateResults();
 };
@@ -67,6 +69,8 @@ Bill.prototype.deletePerson = function(person) {
 
     //Remove this from our items
     this.people.splice(this.people.indexOf(person), 1);
+
+    this.lobby.deletePerson(person);
 
     //And update the results
     this.calculateResults();

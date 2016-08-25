@@ -37,6 +37,36 @@ Lobby.prototype.deleteItem = function(item) {
     }.bind(this));
 };
 
+Lobby.prototype.addPerson = function(person) {
+    $.ajax({
+        method: "POST",
+        url: "./php/addPersonToLobby.php",
+        cache: false,
+        dataType: "JSON",
+        data: {
+            "lobby": this.name,
+            "name": person.name
+        }
+    }).done(function(data) {
+        this.update();
+    }.bind(this));
+};
+
+Lobby.prototype.deletePerson = function(person) {
+    $.ajax({
+        method: "POST",
+        url: "./php/deletePersonFromLobby.php",
+        cache: false,
+        dataType: "JSON",
+        data: {
+            "lobby": this.name,
+            "name": person.name
+        }
+    }).done(function(data) {
+        this.update();
+    }.bind(this));
+};
+
 Lobby.prototype.update = function() {
     $.ajax({
         method: "POST",
