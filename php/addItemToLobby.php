@@ -25,7 +25,7 @@ if ($query->execute()) {
     echo(json_encode("Failed" . $conn->error));
 }
 
-array_push($old, $arr);
+$old["items"][] = $arr;
 
 $json = json_encode($old);
 

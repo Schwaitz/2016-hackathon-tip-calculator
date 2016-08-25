@@ -16,9 +16,14 @@ if ($query->rowCount() == 1) {
 } else {
     $hash = password_hash($pass, PASSWORD_DEFAULT);
 
-    $query = $conn->prepare("INSERT INTO lobby (name, password) VALUES (:name, :hash)");
-    $query->bindParam(":name", $name);
-    $query->bindParam(":hash", $hash);
+    $query = $conn->prepare("INSERT INTO lobby (name, password, data) VALUES (:name, :hash, :data)");
+    $query->bindParam(":name", $name, PDO::PARAM_STR);
+    $query->bindParam(":hash", $hash, PDO::PARAM_STR);
+    $query->bindParam(":data", json_encode(["people" => [], "items" => []]), PDO::PARAM_STR);
 
-    $query->execute();
+    if ($query->execute()) {
+        echo(json_encode(true));
+    } else {
+        echo(json_encode(false));
+    }
 }
