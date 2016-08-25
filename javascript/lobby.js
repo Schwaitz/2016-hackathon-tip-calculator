@@ -99,6 +99,13 @@ Lobby.prototype.update = function() {
                 if (test.name === item.person)
                     return test;
             });
+            if (typeof(person) === "undefined") {
+                this.bill.addPerson(item.person);
+                person = this.bill.people.find(function(test) {
+                    if (test.name === item.person)
+                        return test;
+                });
+            }
             this.bill.addItem(item.name, item.price, person);
         }, this);
     }.bind(this));
