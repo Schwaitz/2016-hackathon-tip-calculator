@@ -58,5 +58,16 @@ Lobby.prototype.update = function() {
             var person = this.bill.people[key];
             this.bill.deletePerson(person);
         }, this);
+
+        data.people.forEach(function(person) {
+            this.bill.addPerson(person.name);
+        }, this);
+        data.items.forEach(function(item) {
+            var person = this.bill.people.find(function(test) {
+                if (test.name === item.person)
+                    return test;
+            });
+            this.bill.addItem(item.name, item.price, person);
+        }, this);
     }.bind(this));
 };
