@@ -8,3 +8,5 @@ echo("<pre style='font-family: \"Comic Sans MS\", cursive, sans-serif; font-size
 passthru("cd " . __DIR__ . " && git pull");
 
 echo("</pre>");
+
+echo("</body>");
