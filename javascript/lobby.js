@@ -101,11 +101,8 @@ Lobby.prototype.update = function() {
                     return test;
             }, this)];
             if (typeof(person) === "undefined") {
-                this.bill.addPerson(new Bill.Person(this.bill, item.person));
-                person = this.bill.people[Object.keys(this.bill.people).find(function(test) {
-                    if (this.bill.people[test].name === testName)
-                        return test;
-                }, this)];
+                person = new Bill.Person(this.bill, item.person);
+                this.bill.addPerson(person);
             }
             this.bill.addItem(new Bill.Item(this.bill, item.name, item.price, person));
         }, this);
