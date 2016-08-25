@@ -1,8 +1,7 @@
 $(function() {
     $("#gratuityBox").combobox({appendId: "Input"});
 
-    var bill = new Bill();
-    var lobby = "";
+    var lobby = null;
 
     $("#addItemButton").click(function () {
         //Get the values from the text boxes
@@ -19,7 +18,7 @@ $(function() {
         personField.val("");
 
         //Add the item to the bill
-        bill.addItem(name, price, person);
+        lobby.bill.addItem(name, price, person);
     });
     $("#addPersonButton").click(function () {
         //Get the value from the text box
@@ -30,7 +29,7 @@ $(function() {
         nameField.val("");
 
         //Add the person to the bill
-        bill.addPerson(name);
+        lobby.bill.addPerson(name);
     });
 
     var jmodal = $("#joinModal");
@@ -86,8 +85,8 @@ $(function() {
             }).done(function(data) {
                 if (data) {
                     jmodal.modal("hide");
-                    lobby = lobbyId;
-                    updateFromLobby();
+                    lobby = new Lobby(lobbyId);
+                    lobby.update();
                 } else {
                     $("#joinForm").addClass("has-error");
                 }
@@ -110,37 +109,13 @@ $(function() {
             }
         }).done(function(data) {
             if (data) {
-                lobby = lobbyId;
-                updateFromLobby();
+                lobby = new Lobby(lobbyId);
+                lobby.update();
             } else {
                 //???
             }
         });
     });
-
-    function updateFromLobby() {
-        $.ajax({
-            method: "POST",
-            url: "./php/updateLobby.php",
-            cache: false,
-            dataType: "JSON",
-            data: {
-                "lobby": lobby
-            }
-        }).done(function(data) {
-            console.log(data);
-
-            //Delete everything we have and replace it with the data
-            while (bill.items.count) {
-                var item = bill.items[i];
-                bill.deleteItem(item);
-            }
-            while (bill.people.count) {
-                var person = bill.people[i];
-                bill.deletePerson(person);
-            }
-        });
-    }
 });
 
 function formatCurrency(number) {
