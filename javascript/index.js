@@ -86,6 +86,9 @@ $(function() {
                     jmodal.modal("hide");
                     lobby = new Lobby(lobbyId);
                     lobby.update();
+                    
+                    setInterval(lobby.update.bind(lobby), 1000);
+                    
                 } else {
                     $("#joinForm").addClass("has-error");
                 }
@@ -110,6 +113,7 @@ $(function() {
             if (data) {
                 lobby = new Lobby(lobbyId);
                 lobby.update();
+                setInterval(lobby.update.bind(lobby), 1000);
             } else {
                 //???
             }
