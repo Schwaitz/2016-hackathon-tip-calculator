@@ -14,9 +14,7 @@ Bill.prototype.addItem = function(item) {
 
     //And actually add it to the page
     item.appendJQ();
-
-    this.lobby.addItem(item);
-
+    
     //And update the results
     this.calculateResults();
 };
@@ -28,9 +26,7 @@ Bill.prototype.deleteItem = function(item) {
 
     //Remove this from our items
     this.items.splice(this.items.indexOf(item), 1);
-
-    this.lobby.deleteItem(item);
-
+    
     //And update the results
     this.calculateResults();
 };
@@ -43,9 +39,7 @@ Bill.prototype.addPerson = function(person) {
 
     //And actually add it to the page
     person.appendJQ();
-
-    this.lobby.addPerson(person);
-
+    
     //And update the results
     this.calculateResults();
 };
@@ -57,9 +51,7 @@ Bill.prototype.deletePerson = function(person) {
 
     //Remove this from our items
     this.people.splice(this.people.indexOf(person), 1);
-
-    this.lobby.deletePerson(person);
-
+    
     //And update the results
     this.calculateResults();
 };
