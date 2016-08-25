@@ -54,9 +54,9 @@ Lobby.prototype.update = function() {
             var item = this.bill.items[0];
             this.bill.deleteItem(item);
         }
-        while (this.bill.people.length) {
-            var person = this.bill.people[0];
+        Object.keys(this.bill.people).forEach(function(key) {
+            var person = this.bill.people[key];
             this.bill.deletePerson(person);
-        }
+        }, this);
     }.bind(this));
 };
