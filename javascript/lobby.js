@@ -96,13 +96,16 @@ Lobby.prototype.update = function() {
         }, this);
         data.items.forEach(function(item) {
             var testName = item.person;
-            var person = this.bill.people[Object.keys(this.bill.people).find(function(test) {
+            var person = Object.keys(this.bill.people).find(function(test) {
                 if (this.bill.people[test].name === testName)
                     return test;
-            }, this)];
+            }, this);
             if (typeof(person) === "undefined") {
-                person = new Bill.Person(this.bill, item.person);
-                this.bill.addPerson(person);
+                this.bill.addPerson(new Bill.Person(this.bill, item.person));
+                person = Object.keys(this.bill.people).find(function(test) {
+                    if (this.bill.people[test].name === testName)
+                        return test;
+                }, this);
             }
             this.bill.addItem(new Bill.Item(this.bill, item.name, item.price, person));
         }, this);
