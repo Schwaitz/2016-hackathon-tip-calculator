@@ -1,9 +1,5 @@
-Bill.Item = function(bill, name, price, personNumber) {
+Bill.Item = function(bill) {
     this.bill = bill;
-    //Set up the item's fields
-    this.name = name;
-    this.price = price;
-    this.person = this.bill.people[personNumber];
 };
 
 Bill.Item.prototype.appendJQ = function() {
@@ -20,7 +16,7 @@ Bill.Item.prototype.appendJQ = function() {
             .text("Delete")
             .addClass("btn btn-danger delete-button")
             .click(function() {
-                this.bill.lobby.deleteItem(this);
+                this.bill.deleteItem(this);
             }.bind(this))
     );
     $("#billItems").append(jq);

@@ -1,8 +1,9 @@
 $(document).ready(function() {
     
 
+
     update_lobby();
-    var interval = setInterval(update_lobby, 1000);
+    var interval = setInterval(update_lobby, 5000);
 
 
 });
@@ -20,7 +21,6 @@ var name = $("#lobbyName").text();
     })
 
     .done(function(response) {
-        
         
         $("#data").text(response);
 

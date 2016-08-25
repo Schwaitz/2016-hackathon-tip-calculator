@@ -1,6 +1,0 @@
-# hackathon
-
-Hackathon **thing** ( ͡° ͜ʖ ͡°)
-
-
-😘

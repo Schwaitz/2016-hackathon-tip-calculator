@@ -1,6 +1,5 @@
-Bill.Person = function(bill, name) {
+Bill.Person = function(bill) {
     this.bill = bill;
-    this.name = name;
 };
 
 Bill.Person.prototype.appendJQ = function() {
@@ -13,7 +12,7 @@ Bill.Person.prototype.appendJQ = function() {
             .text("Delete")
             .addClass("btn btn-danger delete-button")
             .click(function() {
-                this.bill.lobby.deletePerson(this);
+                this.bill.deletePerson(this);
             }.bind(this))
     );
     $("#peopleItems").append(jq);

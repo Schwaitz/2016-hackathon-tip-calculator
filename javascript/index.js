@@ -1,7 +1,7 @@
-var lobby = null;
 $(function() {
-    $("#gratuityBox").combobox({appendId: "Input"});
+    $(".combobox").combobox({appendId: "Input"});
 
+    var bill = new Bill();
     $("#addItemButton").click(function () {
         //Get the values from the text boxes
         var nameField = $("#addItemName");
@@ -17,7 +17,7 @@ $(function() {
         personField.val("");
 
         //Add the item to the bill
-        lobby.addItem(new Bill.Item(lobby.bill, name, price, person));
+        bill.addItem(name, price, person);
     });
     $("#addPersonButton").click(function () {
         //Get the value from the text box
@@ -28,97 +28,7 @@ $(function() {
         nameField.val("");
 
         //Add the person to the bill
-        lobby.bill.addPerson(new Bill.Person(lobby.bill, name));
-    });
-
-    var jmodal = $("#joinModal");
-    jmodal.modal({
-        backdrop: "static",
-        keyboard: false,
-        show: true
-    });
-
-    var cmodal = $("#createModal");
-    cmodal.modal({
-        backdrop: "static",
-        keyboard: false,
-        show: false
-    });
-
-    $("#showJoinLobbyButton").click(function () {
-        cmodal.modal("hide");
-        setTimeout(function(){jmodal.modal("show")}, 200);
-    });
-    $("#showCreateLobbyButton").click(function () {
-        jmodal.modal("hide");
-        setTimeout(function(){cmodal.modal("show")}, 200);
-    });
-
-    $.ajax({
-        method: "GET",
-        url: "./php/getLobbyList.php",
-        cache: false,
-        dataType: "JSON"
-    }).done(function(data) {
-        console.log(data);
-
-        var box = $("#joinLobbyId");
-        data.forEach(function (id) {
-            box.append($("<option></option>").val(id).text(id));
-        });
-        box.combobox({appendId: "Input"});
-
-        $("#joinLobbyButton").click(function () {
-            var lobbyId = $("#joinLobbyIdInput").val();
-            var lobbyPass = $("#joinLobbyPassword").val();
-
-            $.ajax({
-                method: "POST",
-                url: "./php/joinLobby.php",
-                cache: false,
-                dataType: "JSON",
-                data: {
-                    "name" : lobbyId,
-                    "password" : lobbyPass
-                }
-            }).done(function(data) {
-                if (data) {
-                    jmodal.modal("hide");
-                    lobby = new Lobby(lobbyId);
-                    lobby.update();
-                    
-                    // setInterval(lobby.update.bind(lobby), 1000);
-                    
-                } else {
-                    $("#joinForm").addClass("has-error");
-                }
-            });
-        });
-    });
-
-    $("#createLobbyButton").click(function () {
-        var lobbyId = $("#createLobbyName").val();
-        var lobbyPass = $("#createLobbyPassword").val();
-
-        $.ajax({
-            method: "POST",
-            url: "./php/createLobby.php",
-            cache: false,
-            dataType: "JSON",
-            data: {
-                "name" : lobbyId,
-                "password" : lobbyPass
-            }
-        }).done(function(data) {
-            if (data) {
-                cmodal.modal("hide");
-                lobby = new Lobby(lobbyId);
-                lobby.update();
-                // setInterval(function(){lobby.update()}, 1000);
-            } else {
-                //???
-            }
-        });
+        bill.addPerson(name);
     });
 });
 
