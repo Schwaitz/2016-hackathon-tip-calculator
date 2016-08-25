@@ -32,7 +32,8 @@ foreach($old["items"] as $key){
 
 $json = json_encode($old);
 
-$query = $conn->prepare("INSERT INTO lobby (data) VALUES (:data)");
+$query = $conn->prepare("UPDATE lobby SET data = :data WHERE name = :lobby");
+$query->bindParam(":lobby", $lobby);
 $query->bindParam(":data", $json);
 
 if ($query->execute()) {
