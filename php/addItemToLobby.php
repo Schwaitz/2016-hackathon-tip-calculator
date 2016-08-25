@@ -22,7 +22,7 @@ if ($query->execute()) {
 
 
 } else {
-    echo(json_encode("Failed" . $conn->error));
+    die(json_encode("Failed" . $conn->error));
 }
 
 $old["items"] = ($old["items"] === null ? [] : $old["items"]);

@@ -87,7 +87,7 @@ $(function() {
                     lobby = new Lobby(lobbyId);
                     lobby.update();
                     
-                    setInterval(lobby.update.bind(lobby), 1000);
+                    // setInterval(lobby.update.bind(lobby), 1000);
                     
                 } else {
                     $("#joinForm").addClass("has-error");
@@ -114,7 +114,7 @@ $(function() {
                 cmodal.modal("hide");
                 lobby = new Lobby(lobbyId);
                 lobby.update();
-                setInterval(lobby.update.bind(lobby), 1000);
+                // setInterval(function(){lobby.update()}, 1000);
             } else {
                 //???
             }
