@@ -13,7 +13,7 @@ Bill.Person.prototype.appendJQ = function() {
             .text("Delete")
             .addClass("btn btn-danger delete-button")
             .click(function() {
-                this.bill.deletePerson(this);
+                this.bill.lobby.deletePerson(this);
             }.bind(this))
     );
     $("#peopleItems").append(jq);

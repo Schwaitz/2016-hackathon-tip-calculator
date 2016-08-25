@@ -20,7 +20,7 @@ Bill.Item.prototype.appendJQ = function() {
             .text("Delete")
             .addClass("btn btn-danger delete-button")
             .click(function() {
-                this.bill.deleteItem(this);
+                this.bill.lobby.deleteItem(this);
             }.bind(this))
     );
     $("#billItems").append(jq);
