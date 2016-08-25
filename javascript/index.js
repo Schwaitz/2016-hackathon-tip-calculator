@@ -131,12 +131,14 @@ $(function() {
             console.log(data);
 
             //Delete everything we have and replace it with the data
-            bill.items.forEach(function(item) {
+            while (bill.items.count) {
+                var item = bill.items[i];
                 bill.deleteItem(item);
-            });
-            bill.people.forEach(function(person) {
+            }
+            while (bill.people.count) {
+                var person = bill.people[i];
                 bill.deletePerson(person);
-            });
+            }
         });
     }
 });
